@@ -239,11 +239,13 @@ function retiroEsquinaHTML(p) {
 
 function centroManzanaHTML(p) {
   const grupo = p.zona_grupo;
-  if (grupo !== 'AC' && grupo !== 'AN') return '';
+  if (grupo !== 'AC' && grupo !== 'AN') {
+    return '<div style="font-size:12px; color:#888; margin-top:8px;">Centro de manzana: <strong>No</strong> (esta zona no tiene esa restricción).</div>';
+  }
   const filas = [['Manzana de 100 x 100 m', '33,33 m']];
   if (grupo === 'AN') filas.push(['Manzana de 80 m de lado', '26,67 m']);
   return `<div class="retiro-esquina">
-    <strong>📐 Centro de manzana</strong>
+    <strong>📐 Centro de manzana: Sí</strong>
     En esta zona se construye sobre la línea municipal (pegado a la vereda), pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda como centro de manzana, sin construir, compartido con los lotes vecinos de la manzana.
     <table>${filas.map(([k, v]) => `<tr><td>${k}</td><td>Hasta ${v} de fondo</td></tr>`).join('')}</table>
   </div>`;
