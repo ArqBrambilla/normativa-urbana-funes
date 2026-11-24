@@ -101,6 +101,19 @@
         <input type="checkbox" id="toggleAgua" checked />
         <span class="legend-swatch" style="background:#64b5f6"></span> Restricción curso de agua
       </label>
+      <div class="layer-group-title">Cobertura de servicios</div>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleSvcAgua" />
+        <span class="legend-swatch" style="background:#26c6da"></span> Agua potable
+      </label>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleSvcGas" />
+        <span class="legend-swatch" style="background:#ffa726"></span> Gas de red
+      </label>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleSvcCloaca" />
+        <span class="legend-swatch" style="background:#8d6e63"></span> Cloaca
+      </label>
       <div class="layer-group-title">Servicios y equipamiento</div>
       <label class="layer-toggle">
         <input type="checkbox" id="toggleSalud" />
@@ -310,6 +323,7 @@ let aguaLayer = null;
 let serviciosData = null;
 let equipData = null;
 const equipLayers = {};
+const svcLayers = {};
 const equipEstilo = {
   salud: { color: '#d64550', icono: '✚' },
   educacion: { color: '#2563eb', icono: '🎓' },
@@ -480,6 +494,13 @@ Promise.all([
   }).addTo(map);
   aguaLayer.bindTooltip('Franja de restricción: no se permite construir (Art. 13, Ordenanza 288/85)');
 
+  svcLayers.agua = L.geoJSON(servicios.agua, { style: { color: '#0097a7', weight: 1, fillColor: '#26c6da', fillOpacity: 0.25 } });
+  svcLayers.agua.bindTooltip('Cobertura de agua potable');
+  svcLayers.gas = L.geoJSON(servicios.gas, { style: { color: '#ef6c00', weight: 1, fillColor: '#ffa726', fillOpacity: 0.25 } });
+  svcLayers.gas.bindTooltip('Cobertura de gas de red');
+  svcLayers.cloaca = L.geoJSON(servicios.cloaca, { style: { color: '#5d4037', weight: 1, fillColor: '#8d6e63', fillOpacity: 0.25 } });
+  svcLayers.cloaca.bindTooltip('Cobertura de cloaca');
+
   requestAnimationFrame(() => {
     map.invalidateSize();
     map.fitBounds(geoLayer.getBounds());
@@ -493,6 +514,13 @@ document.getElementById('toggleAgua').addEventListener('change', e => {
   if (!aguaLayer) return;
   if (e.target.checked) map.addLayer(aguaLayer); else map.removeLayer(aguaLayer);
 });
+for (const key of ['Agua', 'Gas', 'Cloaca']) {
+  document.getElementById('toggleSvc' + key).addEventListener('change', e => {
+    const lyr = svcLayers[key.toLowerCase()];
+    if (!lyr) return;
+    if (e.target.checked) map.addLayer(lyr); else map.removeLayer(lyr);
+  });
+}
 for (const cat of ['Salud', 'Educacion', 'Farmacia']) {
   document.getElementById('toggle' + cat).addEventListener('change', e => {
     const key = cat.toLowerCase();
