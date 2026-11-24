@@ -237,18 +237,11 @@ function retiroEsquinaHTML(p) {
   </div>`;
 }
 
-function centroManzanaHTML(p) {
+function centroManzanaValor(p) {
   const grupo = p.zona_grupo;
-  if (grupo !== 'AC' && grupo !== 'AN') {
-    return '<div style="font-size:12px; color:#888; margin-top:8px;">Centro de manzana: <strong>No</strong> (esta zona no tiene esa restricción).</div>';
-  }
-  const filas = [['Manzana de 100 x 100 m', '33,33 m']];
-  if (grupo === 'AN') filas.push(['Manzana de 80 m de lado', '26,67 m']);
-  return `<div class="retiro-esquina">
-    <strong>📐 Centro de manzana: Sí</strong>
-    En esta zona se construye sobre la línea municipal (pegado a la vereda), pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda como centro de manzana, sin construir, compartido con los lotes vecinos de la manzana.
-    <table>${filas.map(([k, v]) => `<tr><td>${k}</td><td>Hasta ${v} de fondo</td></tr>`).join('')}</table>
-  </div>`;
+  if (grupo === 'AC') return 'Sí — hasta 33,33 m de fondo (manzana de 100 m)';
+  if (grupo === 'AN') return 'Sí — hasta 33,33 m (manzana 100 m) / 26,67 m (manzana 80 m)';
+  return 'No';
 }
 
 const GLOSARIO_HTML = `<dl>
@@ -260,6 +253,7 @@ const GLOSARIO_HTML = `<dl>
   <dd style="margin-top:4px;">También admite hasta 10% de tolerancia sobre el máximo.</dd>
   <dt>Altura máxima</dt><dd>Cantidad de pisos permitidos (PB = planta baja) y su equivalente en metros, según lo que fije cada zona en el Anexo II.</dd>
   <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote (línea municipal, medianeras o fondo), según lo que fije cada zona.</dd>
+  <dt>Centro de manzana</dt><dd>En Área Central y Área Norte se construye pegado a la línea municipal, pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda sin construir, compartido con los lotes vecinos de la manzana. En el resto de las zonas no aplica (los retiros ya cubren todo el perímetro del lote).</dd>
   <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote en esta zona para construir o subdividir, según el Anexo I.</dd>
 </dl>`;
 
@@ -277,9 +271,9 @@ function fichaHTML(p, tieneEje) {
         <tr><td>F.O.S. máx / mín</td><td>${fmt(p.fos_max)} / ${fmt(p.fos_min)}</td></tr>
         <tr><td>Altura máx / mín</td><td>${fmt(p.altura_max)} / ${fmt(p.altura_min)}</td></tr>
         <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
+        <tr><td>Centro de manzana</td><td>${centroManzanaValor(p)}</td></tr>
       </table>
       ${retiroEsquinaHTML(p)}
-      ${centroManzanaHTML(p)}
       ${simuladorHTML(p)}
       <div class="topics">
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
