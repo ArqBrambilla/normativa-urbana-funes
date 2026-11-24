@@ -63,8 +63,6 @@
   .svc-badge { font-size:12px; padding:4px 9px; border-radius:12px; font-weight:600; }
   .svc-si { background:#e3f3e6; color:#1e6b33; }
   .svc-no { background:#f3e3e3; color:#8a2d2d; }
-  .cerca-item { display:flex; justify-content:space-between; font-size:12px; padding:4px 0; border-top:1px solid #f0f0ee; }
-  .cerca-item:first-child { border-top:none; }
   .layer-toggle { display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:6px; cursor:pointer; }
   .layer-group-title { font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:#999; font-weight:600; margin:12px 0 6px; }
   .layer-group-title:first-of-type { margin-top:0; }
@@ -239,6 +237,18 @@ function retiroEsquinaHTML(p) {
   </div>`;
 }
 
+function centroManzanaHTML(p) {
+  const grupo = p.zona_grupo;
+  if (grupo !== 'AC' && grupo !== 'AN') return '';
+  const filas = [['Manzana de 100 x 100 m', '33,33 m']];
+  if (grupo === 'AN') filas.push(['Manzana de 80 m de lado', '26,67 m']);
+  return `<div class="retiro-esquina">
+    <strong>📐 Centro de manzana</strong>
+    En esta zona se construye sobre la línea municipal (pegado a la vereda), pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda como centro de manzana, sin construir, compartido con los lotes vecinos de la manzana.
+    <table>${filas.map(([k, v]) => `<tr><td>${k}</td><td>Hasta ${v} de fondo</td></tr>`).join('')}</table>
+  </div>`;
+}
+
 const GLOSARIO_HTML = `<dl>
   <dt>F.O.T. (Factor de Ocupación Total)</dt>
   <dd>Definición textual de la ordenanza (Anexo II, Índices Edilicios): "relación entre la superficie total de edificación (incluidos entrepisos, pero excluyendo galerías, subsuelos, balcones e instalaciones de servicios en azoteas) y el área total del predio, sin descontar la superficie comprendida por retiro de línea de edificación y espacio destinado a centro de manzana."</dd>
@@ -267,6 +277,7 @@ function fichaHTML(p, tieneEje) {
         <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
       </table>
       ${retiroEsquinaHTML(p)}
+      ${centroManzanaHTML(p)}
       ${simuladorHTML(p)}
       <div class="topics">
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
@@ -452,7 +463,6 @@ Promise.all([
         }
         html += fichaHTML(f.properties, tieneEjeClick);
         html += serviciosHTML(pt);
-        html += cercaTuyoHTML(pt);
         document.getElementById('result').innerHTML = html;
         recalcSimulador();
       });
@@ -555,27 +565,6 @@ function serviciosHTML(pt) {
   </div>`;
 }
 
-function cercaTuyoHTML(pt) {
-  if (!equipData) return '';
-  const items = [];
-  for (const cat of Object.keys(equipEstilo)) {
-    let mejor = null, mejorDist = Infinity;
-    for (const f of equipData.features) {
-      if (f.properties.categoria !== cat) continue;
-      const d = turf.distance(pt, f, { units: 'meters' });
-      if (d < mejorDist) { mejorDist = d; mejor = f; }
-    }
-    if (mejor && mejorDist < 3000) {
-      items.push(`<div class="cerca-item"><span>${equipEstilo[cat].icono} ${mejor.properties.nombre}</span><span>${Math.round(mejorDist)} m</span></div>`);
-    }
-  }
-  if (!items.length) return '';
-  return `<div class="card">
-    <strong style="font-size:13px;">Lo más cercano</strong>
-    <div style="margin-top:4px;">${items.join('')}</div>
-  </div>`;
-}
-
 function ubicarPunto(lat, lon) {
   if (marker) map.removeLayer(marker);
   marker = L.marker([lat, lon]).addTo(map);
@@ -611,7 +600,6 @@ function ubicarPunto(lat, lon) {
     html += '<p class="empty-hint">Esa dirección está fuera de las zonas con índices cargados todavía (ej. AR5, AR6, Área Industrial), o fuera del ejido relevado.</p>';
   }
   html += serviciosHTML(pt);
-  html += cercaTuyoHTML(pt);
   document.getElementById('result').innerHTML = html;
   recalcSimulador();
 }
