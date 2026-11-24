@@ -31,6 +31,11 @@
   .legend-item { display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:5px; }
   .legend-swatch { width:12px; height:12px; border-radius:3px; flex:0 0 auto; }
   .disclaimer { font-size:11px; color:#888; line-height:1.4; border-top:1px solid #e3e3e0; padding-top:10px; margin-top:4px; }
+  .retiro-esquina { background:#fff8e6; border:1px solid #f0d99a; border-radius:8px; padding:8px 10px; margin-top:8px; }
+  .retiro-esquina strong { display:block; font-size:12px; color:#7a5b00; margin-bottom:4px; }
+  .retiro-esquina table { width:100%; font-size:12px; border-collapse:collapse; color:#5a4400; }
+  .retiro-esquina td { padding:2px 0; }
+  .retiro-esquina td:last-child { text-align:right; font-weight:600; }
   .topics { margin-top:12px; }
   .topics-title { font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#999; font-weight:600; margin-bottom:6px; }
   .topic-item { margin-bottom:6px; }
@@ -206,19 +211,24 @@ function temasAdicionales(p) {
     temas.push(topicItem('Si vas a fraccionar este lote',
       'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.'));
   }
-  if (grupo === 'AR3') {
-    temas.push(topicItem('Retiro especial en lotes esquineros',
-      'Hasta 350 m²: 2 m a ambos lados · Hasta 600 m²: 2 m al lado mayor y 4 m al lado menor · Más de 600 m²: 4 m a ambos lados.'));
-  }
-  if (grupo === 'AR4') {
-    temas.push(topicItem('Retiro especial en lotes esquineros',
-      'Hasta 350 m²: 3 m a ambos lados · Hasta 600 m²: 3 m al lado mayor y 4 m al lado menor · Más de 600 m²: 5 m a ambos lados.'));
-  }
   if (grupo === 'ALR') {
     temas.push(topicItem('Loteo restringido (ALR): cerramientos y servicios',
       'Si el emprendimiento tiene cerramiento entre el dominio privado y el espacio verde público, ese cerramiento no se puede modificar. Los servicios (electricidad, telecomunicaciones, etc.) dentro del área y en sus veredas deben ser subterráneos (Art. 16 bis, Ordenanza 617/09).'));
   }
   return temas;
+}
+
+const RETIRO_ESQUINA = {
+  AR3: [['Hasta 350 m²', '2 m (ambos lados)'], ['Hasta 600 m²', '2 m / 4 m'], ['Más de 600 m²', '4 m (ambos lados)']],
+  AR4: [['Hasta 350 m²', '3 m (ambos lados)'], ['Hasta 600 m²', '3 m / 4 m'], ['Más de 600 m²', '5 m (ambos lados)']]
+};
+function retiroEsquinaHTML(p) {
+  const filas = RETIRO_ESQUINA[p.zona_grupo];
+  if (!filas) return '';
+  return `<div class="retiro-esquina">
+    <strong>📐 Si tu lote es esquina: retiro distinto</strong>
+    <table>${filas.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>
+  </div>`;
 }
 
 const GLOSARIO_HTML = `<dl>
@@ -247,6 +257,7 @@ function fichaHTML(p, tieneEje) {
         <tr><td>Altura máx / mín</td><td>${fmt(p.altura_max)} / ${fmt(p.altura_min)}</td></tr>
         <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
       </table>
+      ${retiroEsquinaHTML(p)}
       ${simuladorHTML(p)}
       <div class="topics">
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
