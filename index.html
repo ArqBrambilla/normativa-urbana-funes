@@ -209,7 +209,7 @@ function temasAdicionales(p) {
 
   if (['AC', 'AN', 'AR3', 'AR4', 'ALR'].includes(grupo)) {
     temas.push(topicItem('Si vas a fraccionar este lote',
-      'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.'));
+      'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.<br><br>Para subdivisiones, la tabla de índices admite una <strong>tolerancia de ±20%</strong>, pero solo en una de las variables (por ejemplo, en la superficie mínima o en el frente mínimo, no en ambas a la vez).'));
   }
   if (grupo === 'ALR') {
     temas.push(topicItem('Loteo restringido (ALR): cerramientos y servicios',
@@ -222,6 +222,14 @@ const RETIRO_ESQUINA = {
   AR3: [['Hasta 350 m²', '2 m (ambos lados)'], ['Hasta 600 m²', '2 m / 4 m'], ['Más de 600 m²', '4 m (ambos lados)']],
   AR4: [['Hasta 350 m²', '3 m (ambos lados)'], ['Hasta 600 m²', '3 m / 4 m'], ['Más de 600 m²', '5 m (ambos lados)']]
 };
+function aeConsolidadaHTML(p) {
+  if (p.zona_grupo !== 'AE') return '';
+  return `<div class="retiro-esquina">
+    <strong>📐 Manzanas con viviendas consolidadas</strong>
+    Si tu manzana en el Área de Equipamiento ya tiene casas construidas (área consolidada), en vez de estos índices se aplican los de <strong>AR3</strong>: superficie mínima 500 m², frente mínimo 15 m, F.O.T. 0,6 / F.O.S. 0,3, altura PB+1, retiro 4 m.
+  </div>`;
+}
+
 function retiroEsquinaHTML(p) {
   const filas = RETIRO_ESQUINA[p.zona_grupo];
   if (!filas) return '';
@@ -249,6 +257,7 @@ function fichaHTML(p, tieneEje) {
     <div class="card">
       <span class="zona-badge">${p.cod_zona}</span>
       ${tieneEje ? '<div style="font-size:11px; color:#888; margin-top:6px;">Estos son los índices generales de la zona. El eje especial de arriba tiene prioridad para el frente del lote sobre esa calle.</div>' : ''}
+      ${aeConsolidadaHTML(p)}
       <table>
         <tr><td>Superficie mínima</td><td>${fmt(p.sup_min)}</td></tr>
         <tr><td>Ancho/frente mínimo</td><td>${fmt(p.frente_min)}</td></tr>
