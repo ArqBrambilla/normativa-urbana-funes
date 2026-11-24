@@ -222,11 +222,15 @@ function temasAdicionales(p) {
 }
 
 const GLOSARIO_HTML = `<dl>
-  <dt>F.O.T.</dt><dd>Cuántos m² totales podés construir, sumando todos los pisos.</dd>
-  <dt>F.O.S.</dt><dd>Qué parte del lote podés cubrir con construcción, visto desde arriba.</dd>
-  <dt>Altura máxima</dt><dd>Pisos máximos permitidos (PB = planta baja) y su equivalente en metros.</dd>
-  <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote.</dd>
-  <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote para construir o subdividir.</dd>
+  <dt>F.O.T. (Factor de Ocupación Total)</dt>
+  <dd>Definición textual de la ordenanza (Anexo II, Índices Edilicios): "relación entre la superficie total de edificación (incluidos entrepisos, pero excluyendo galerías, subsuelos, balcones e instalaciones de servicios en azoteas) y el área total del predio, sin descontar la superficie comprendida por retiro de línea de edificación y espacio destinado a centro de manzana."</dd>
+  <dd style="margin-top:4px;">Admite hasta 10% de tolerancia sobre el máximo (esa tolerancia no aplica a retiros, distancias ni alturas).</dd>
+  <dt>F.O.S. (Factor de Ocupación de Suelo)</dt>
+  <dd>Definición textual de la ordenanza: "relación que existe entre la superficie total que ocupa la edificación en Planta Baja, y el área total del predio", con el mismo criterio de retiros y centro de manzana que el F.O.T.</dd>
+  <dd style="margin-top:4px;">También admite hasta 10% de tolerancia sobre el máximo.</dd>
+  <dt>Altura máxima</dt><dd>Cantidad de pisos permitidos (PB = planta baja) y su equivalente en metros, según lo que fije cada zona en el Anexo II.</dd>
+  <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote (línea municipal, medianeras o fondo), según lo que fije cada zona.</dd>
+  <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote en esta zona para construir o subdividir, según el Anexo I.</dd>
 </dl>`;
 
 function fichaHTML(p, tieneEje) {
@@ -246,6 +250,7 @@ function fichaHTML(p, tieneEje) {
       ${simuladorHTML(p)}
       <div class="topics">
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
+        <div style="font-size:11px; color:#999; margin:-2px 0 6px; line-height:1.4;">Orientación para entender la normativa, no un reemplazo del texto legal vigente.</div>
         ${topicItem('Glosario: FOT, FOS, altura, retiro', GLOSARIO_HTML)}
         ${temasAdicionales(p).join('')}
       </div>
