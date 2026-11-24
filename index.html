@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Normativa urbana de Funes - MVP</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; height:100%; font-family: system-ui, sans-serif; color:#1a1a1a; }
+  #topbar { height:52px; display:flex; align-items:center; gap:10px; padding:0 14px; background:#1f2a24; color:#fff; }
+  #topbar h1 { font-size:14px; margin:0; font-weight:600; }
+  #topbar .tag { font-size:10px; background:#3c3; color:#042; padding:2px 7px; border-radius:10px; }
+  #noticebar { height:30px; display:flex; align-items:center; gap:6px; padding:0 14px; background:#fff6e0; color:#6b4e00; font-size:12px; border-bottom:1px solid #f0dca0; }
+  #layout { position:absolute; top:82px; bottom:0; left:0; right:0; display:flex; }
+  #map { flex:1 1 auto; height:100%; }
+  #sidebar { width:320px; flex:0 0 320px; height:100%; overflow-y:auto; background:#fafaf8; border-left:1px solid #ddd; padding:14px; }
+  #searchBox { display:flex; gap:6px; margin-bottom:12px; }
+  #searchInput { flex:1; padding:8px 10px; border:1px solid #ccc; border-radius:6px; font-size:13px; }
+  #searchBtn { padding:8px 12px; border:none; background:#185fa5; color:#fff; border-radius:6px; font-size:13px; cursor:pointer; }
+  #searchBtn:active { transform: scale(0.97); }
+  #searchStatus { font-size:12px; color:#888; min-height:16px; margin-bottom:10px; }
+  .card { background:#fff; border:1px solid #e3e3e0; border-radius:10px; padding:12px; margin-bottom:14px; }
+  .zona-badge { display:inline-block; background:#2563eb; color:#fff; font-size:12px; font-weight:600; padding:2px 9px; border-radius:6px; }
+  .card table { width:100%; border-collapse:collapse; margin-top:8px; font-size:13px; }
+  .card td { padding:4px 0; border-top:1px solid #f0f0ee; }
+  .card tr:first-child td { border-top:none; }
+  .card td:first-child { color:#666; }
+  .card td:last-child { text-align:right; font-weight:600; }
+  .empty-hint { font-size:13px; color:#888; line-height:1.5; }
+  .legend-item { display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:5px; }
+  .legend-swatch { width:12px; height:12px; border-radius:3px; flex:0 0 auto; }
+  .disclaimer { font-size:11px; color:#888; line-height:1.4; border-top:1px solid #e3e3e0; padding-top:10px; margin-top:4px; }
+  .topics { margin-top:12px; }
+  .topics-title { font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#999; font-weight:600; margin-bottom:6px; }
+  .topic-item { margin-bottom:6px; }
+  .topic-item summary {
+    cursor:pointer; font-size:12px; color:#185fa5; font-weight:600; list-style:none;
+    display:flex; align-items:center; justify-content:space-between; gap:6px;
+    border:1px solid #e3e3e0; background:#fafaf8; border-radius:8px; padding:7px 10px;
+  }
+  .topic-item summary::-webkit-details-marker { display:none; }
+  .topic-item summary .ico { color:#185fa5; margin-right:5px; }
+  .topic-item summary::after { content:"▾"; color:#999; flex:0 0 auto; }
+  .topic-item[open] summary::after { content:"▴"; }
+  .topic-item .topic-body { font-size:12px; color:#444; line-height:1.5; padding:8px 3px 2px; }
+  .topic-item .topic-body dt { font-weight:600; color:#222; margin-top:6px; }
+  .topic-item .topic-body dt:first-child { margin-top:0; }
+  .topic-item .topic-body dd { margin:1px 0 0; }
+  .ejemplo { background:#f4f8fb; border-radius:6px; padding:8px 10px; margin-top:4px; font-size:12px; color:#1f4d73; }
+  .warning-card { background:#fdecea; border:1px solid #e0a39c; border-radius:10px; padding:12px; margin-bottom:14px; font-size:13px; color:#7a271a; line-height:1.5; }
+  .simulador { background:#f4f8fb; border-radius:8px; padding:10px; margin-top:4px; }
+  .simulador label { display:block; font-size:11px; color:#666; margin-bottom:2px; }
+  .simulador input { width:100%; padding:5px 7px; border:1px solid #cfd8e3; border-radius:5px; font-size:13px; }
+  .sim-warn { background:#fff4e0; color:#7a4e00; font-size:12px; border-radius:6px; padding:7px 9px; margin-top:6px; line-height:1.4; }
+  .warning-card strong { display:block; margin-bottom:4px; }
+  .badge-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .svc-badge { font-size:12px; padding:4px 9px; border-radius:12px; font-weight:600; }
+  .svc-si { background:#e3f3e6; color:#1e6b33; }
+  .svc-no { background:#f3e3e3; color:#8a2d2d; }
+  .cerca-item { display:flex; justify-content:space-between; font-size:12px; padding:4px 0; border-top:1px solid #f0f0ee; }
+  .cerca-item:first-child { border-top:none; }
+  .layer-toggle { display:flex; align-items:center; gap:8px; font-size:12px; margin-bottom:6px; cursor:pointer; }
+  .layer-group-title { font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:#999; font-weight:600; margin:12px 0 6px; }
+  .layer-group-title:first-of-type { margin-top:0; }
+  #layersPanel summary { cursor:pointer; font-size:13px; font-weight:600; list-style:none; }
+  #layersPanel summary::-webkit-details-marker { display:none; }
+  #layersPanel summary::after { content:"▾"; float:right; color:#999; }
+  #layersPanel[open] summary::after { content:"▴"; }
+  @media (max-width: 720px) {
+    #layout { flex-direction: column; }
+    #map { flex: 1 1 auto; min-height: 45%; }
+    #sidebar { width:100%; flex: 1 1 auto; border-left:none; border-top:1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+<div id="topbar">
+  <h1>Normativa urbana de Funes &mdash; MVP</h1>
+  <span class="tag">prototipo interno</span>
+</div>
+<div id="noticebar">⚠️ Herramienta informativa. No reemplaza el certificado oficial de factibilidad del Concejo.</div>
+<div id="layout">
+  <div id="map"></div>
+  <div id="sidebar">
+    <div id="searchBox">
+      <input id="searchInput" type="text" placeholder="Av. Santa Fe 1689, Funes" />
+      <button id="searchBtn">Buscar</button>
+    </div>
+    <div style="font-size:11px; color:#888; margin:-6px 0 10px;">Ingresá calle y altura (ej: "Av. Santa Fe 1689"), no esquina.</div>
+    <div id="searchStatus"></div>
+    <div id="result"><p class="empty-hint">Busc&aacute; una direcci&oacute;n o hac&eacute; clic en un lote del mapa para ver su ficha urban&iacute;stica.</p></div>
+    <details class="card" id="layersPanel" open>
+      <summary>Capas del mapa</summary>
+      <div class="layer-group-title">Normativa</div>
+      <div id="legendZonas"></div>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleAgua" checked />
+        <span class="legend-swatch" style="background:#64b5f6"></span> Restricción curso de agua
+      </label>
+      <div class="layer-group-title">Servicios y equipamiento</div>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleSalud" />
+        <span class="legend-swatch" style="background:#d64550"></span> Salud
+      </label>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleEducacion" />
+        <span class="legend-swatch" style="background:#2563eb"></span> Educación
+      </label>
+      <label class="layer-toggle">
+        <input type="checkbox" id="toggleFarmacia" />
+        <span class="legend-swatch" style="background:#1e9e63"></span> Farmacias
+      </label>
+      <div id="equipEstado" style="font-size:11px; color:#999; margin-top:6px;">Cargando...</div>
+      <button id="btnActualizarEquip" style="margin-top:4px; padding:4px 8px; font-size:11px; border:1px solid #ccc; border-radius:5px; background:#fff; cursor:pointer;">🔄 Actualizar desde OpenStreetMap</button>
+    </details>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+<script>
+const map = L.map('map', { zoomControl: true });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+const palette = {
+  AC: '#d85a30', AN: '#ba7517', AR3: '#639922', AR4: '#185fa5',
+  ALR: '#993556', AE: '#534ab7', AI: '#444441'
+};
+const nombres = {
+  AC: 'Área central', AN: 'Área norte', AR3: 'Área residencial 3',
+  AR4: 'Área residencial 4', ALR: 'Loteos restringidos', AE: 'Área de equipamiento'
+};
+function grupoDe(grupo) { return grupo.replace(/_.*/, ''); }
+function colorFor(grupo) { return palette[grupoDe(grupo)] || '#888'; }
+function fmt(v) { return (v === null || v === undefined || v === 'NULL' || v === '-') ? '—' : v; }
+
+function parseNum(v) {
+  if (typeof v !== 'string') return null;
+  const m = v.match(/[\d.,]+/);
+  return m ? parseFloat(m[0].replace(',', '.')) : null;
+}
+
+let currentZoneProps = null;
+
+function simuladorHTML(p) {
+  const fot = typeof p.fot_max === 'number' ? p.fot_max : null;
+  const fos = typeof p.fos_max === 'number' ? p.fos_max : null;
+  if (!fot && !fos) return '';
+  const supDefault = parseNum(p.sup_min) || '';
+  const frenteDefault = parseNum(p.frente_min) || '';
+  return `
+    <div class="simulador">
+      <div style="font-size:12px; font-weight:600; color:#1f4d73; margin-bottom:8px;">Simulá con tu lote</div>
+      <div style="display:flex; gap:8px;">
+        <div style="flex:1;">
+          <label>Superficie (m²)</label>
+          <input type="number" id="simSup" value="${supDefault}" min="0" oninput="recalcSimulador()" />
+        </div>
+        <div style="flex:1;">
+          <label>Frente (m)</label>
+          <input type="number" id="simFrente" value="${frenteDefault}" min="0" oninput="recalcSimulador()" />
+        </div>
+      </div>
+      <div id="simResultado" style="margin-top:8px;"></div>
+    </div>`;
+}
+
+function recalcSimulador() {
+  const supEl = document.getElementById('simSup');
+  const p = currentZoneProps;
+  if (!supEl || !p) return;
+  const sup = parseFloat(supEl.value) || 0;
+  const frente = parseFloat(document.getElementById('simFrente').value) || 0;
+  const fot = typeof p.fot_max === 'number' ? p.fot_max : null;
+  const fos = typeof p.fos_max === 'number' ? p.fos_max : null;
+  const supMin = parseNum(p.sup_min);
+  const frenteMin = parseNum(p.frente_min);
+
+  const partes = [];
+  if (fot) partes.push(`hasta <strong>${Math.round(sup * fot)} m²</strong> construidos en total (sumando todos los pisos)`);
+  if (fos) partes.push(`hasta <strong>${Math.round(sup * fos)} m²</strong> cubiertos en planta baja`);
+  let html = sup > 0 ? `<div class="ejemplo">Con ${sup} m² se podría construir ${partes.join(' y ')}.</div>` : '';
+
+  if (supMin && sup > 0 && sup < supMin) {
+    html += `<div class="sim-warn">Tu superficie (${sup} m²) es menor a la mínima de esta zona (${fmt(p.sup_min)}): el lote puede no ser apto para subdividir o construir de forma independiente.</div>`;
+  }
+  if (frenteMin && frente > 0 && frente < frenteMin) {
+    html += `<div class="sim-warn">Tu frente (${frente} m) es menor al mínimo de esta zona (${fmt(p.frente_min)}).</div>`;
+  }
+  document.getElementById('simResultado').innerHTML = html;
+}
+
+function topicItem(titulo, cuerpoHTML) {
+  return `<details class="topic-item"><summary><span><span class="ico">ⓘ</span>${titulo}</span></summary><div class="topic-body">${cuerpoHTML}</div></details>`;
+}
+
+function temasAdicionales(p) {
+  const grupo = p.zona_grupo;
+  const temas = [];
+
+  if (['AC', 'AN', 'AR3', 'AR4', 'ALR'].includes(grupo)) {
+    temas.push(topicItem('Si vas a fraccionar este lote',
+      'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.'));
+  }
+  if (grupo === 'AR3') {
+    temas.push(topicItem('Retiro especial en lotes esquineros',
+      'Hasta 350 m²: 2 m a ambos lados · Hasta 600 m²: 2 m al lado mayor y 4 m al lado menor · Más de 600 m²: 4 m a ambos lados.'));
+  }
+  if (grupo === 'AR4') {
+    temas.push(topicItem('Retiro especial en lotes esquineros',
+      'Hasta 350 m²: 3 m a ambos lados · Hasta 600 m²: 3 m al lado mayor y 4 m al lado menor · Más de 600 m²: 5 m a ambos lados.'));
+  }
+  if (grupo === 'ALR') {
+    temas.push(topicItem('Loteo restringido (ALR): cerramientos y servicios',
+      'Si el emprendimiento tiene cerramiento entre el dominio privado y el espacio verde público, ese cerramiento no se puede modificar. Los servicios (electricidad, telecomunicaciones, etc.) dentro del área y en sus veredas deben ser subterráneos (Art. 16 bis, Ordenanza 617/09).'));
+  }
+  return temas;
+}
+
+const GLOSARIO_HTML = `<dl>
+  <dt>F.O.T.</dt><dd>Cuántos m² totales podés construir, sumando todos los pisos.</dd>
+  <dt>F.O.S.</dt><dd>Qué parte del lote podés cubrir con construcción, visto desde arriba.</dd>
+  <dt>Altura máxima</dt><dd>Pisos máximos permitidos (PB = planta baja) y su equivalente en metros.</dd>
+  <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote.</dd>
+  <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote para construir o subdividir.</dd>
+</dl>`;
+
+function fichaHTML(p, tieneEje) {
+  currentZoneProps = p;
+  return `
+    <div class="card">
+      <span class="zona-badge">${p.cod_zona}</span>
+      ${tieneEje ? '<div style="font-size:11px; color:#888; margin-top:6px;">Estos son los índices generales de la zona. El eje especial de arriba tiene prioridad para el frente del lote sobre esa calle.</div>' : ''}
+      <table>
+        <tr><td>Superficie mínima</td><td>${fmt(p.sup_min)}</td></tr>
+        <tr><td>Ancho/frente mínimo</td><td>${fmt(p.frente_min)}</td></tr>
+        <tr><td>F.O.T. máx / mín</td><td>${fmt(p.fot_max)} / ${fmt(p.fot_min)}</td></tr>
+        <tr><td>F.O.S. máx / mín</td><td>${fmt(p.fos_max)} / ${fmt(p.fos_min)}</td></tr>
+        <tr><td>Altura máx / mín</td><td>${fmt(p.altura_max)} / ${fmt(p.altura_min)}</td></tr>
+        <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
+      </table>
+      ${simuladorHTML(p)}
+      <div class="topics">
+        <div class="topics-title">Más información de la Ordenanza 288/85</div>
+        ${topicItem('Glosario: FOT, FOS, altura, retiro', GLOSARIO_HTML)}
+        ${temasAdicionales(p).join('')}
+      </div>
+      <div class="disclaimer">Dato informativo seg&uacute;n Ordenanza 288/85 y modificatorias relevadas en QGIS. No reemplaza el certificado oficial de factibilidad emitido por el Concejo.</div>
+    </div>`;
+}
+
+let geoData = null;
+let geoLayer = null;
+let ejesData = null;
+let ejesLayer = null;
+const EJE_BUFFER_KM = 0.03; // ~30m, aproximación del fondo del lote frentista + margen de geocoding
+
+function ejeFichaHTML(p) {
+  return `
+    <div class="card" style="border:2px solid #b8860b;">
+      <span class="zona-badge" style="background:#b8860b;">⚡ Eje: ${p.nombre_calle}</span>
+      <table>
+        <tr><td>F.O.T. máx / mín</td><td>${fmt(p.fot_max)} / ${fmt(p.fot_min)}</td></tr>
+        <tr><td>F.O.S. máx / mín</td><td>${fmt(p.fos_max)} / ${fmt(p.fos_min)}</td></tr>
+        <tr><td>Altura máx / mín</td><td>${fmt(p.altura_max)} / ${fmt(p.altura_min)}</td></tr>
+        <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
+      </table>
+      <div class="ejemplo" style="background:#fdf6e3; color:#6b4e00;">${p.nota || ''}</div>
+    </div>`;
+}
+
+let aguaData = null;
+let aguaLayer = null;
+let serviciosData = null;
+let equipData = null;
+const equipLayers = {};
+const equipEstilo = {
+  salud: { color: '#d64550', icono: '✚' },
+  educacion: { color: '#2563eb', icono: '🎓' },
+  farmacia: { color: '#1e9e63', icono: '✛' }
+};
+const equipNombre = { salud: 'Salud', educacion: 'Educación', farmacia: 'Farmacia' };
+
+// --- Equipamiento en vivo desde OpenStreetMap (Overpass), con caché y respaldo local ---
+const EQUIP_CACHE_KEY = 'funes_equip_cache_v1';
+const EQUIP_CACHE_MS = 24 * 60 * 60 * 1000; // 24hs
+const OVERPASS_MIRRORS = [
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.openstreetmap.ru/api/interpreter'
+];
+const OSM_CATEGORIA = {
+  hospital: 'salud', clinic: 'salud', doctors: 'salud',
+  pharmacy: 'farmacia',
+  school: 'educacion', university: 'educacion', college: 'educacion', kindergarten: 'educacion'
+};
+
+function leerCacheEquip() {
+  try {
+    const raw = localStorage.getItem(EQUIP_CACHE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+function guardarCacheEquip(features) {
+  try { localStorage.setItem(EQUIP_CACHE_KEY, JSON.stringify({ ts: Date.now(), features })); } catch (e) {}
+}
+function fechaCorta(ts) {
+  return new Date(ts).toLocaleString('es-AR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+}
+
+async function consultarOverpass() {
+  const bbox = `${FUNES_BBOX.south},${FUNES_BBOX.west},${FUNES_BBOX.north},${FUNES_BBOX.east}`;
+  const amenities = Object.keys(OSM_CATEGORIA).join('|');
+  const query = `[out:json][timeout:20];(node["amenity"~"^(${amenities})$"](${bbox});way["amenity"~"^(${amenities})$"](${bbox}););out center;`;
+  for (const url of OVERPASS_MIRRORS) {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 12000);
+    try {
+      const res = await fetch(url, { method: 'POST', body: query, signal: ctrl.signal });
+      clearTimeout(to);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const features = data.elements.map(el => {
+        const lat = el.lat ?? (el.center && el.center.lat);
+        const lon = el.lon ?? (el.center && el.center.lon);
+        const cat = el.tags && OSM_CATEGORIA[el.tags.amenity];
+        if (lat == null || lon == null || !cat) return null;
+        return {
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [lon, lat] },
+          properties: { categoria: cat, nombre: (el.tags.name) || equipNombre[cat] }
+        };
+      }).filter(Boolean);
+      return features;
+    } catch (e) {
+      clearTimeout(to);
+    }
+  }
+  return null;
+}
+
+let equipFuenteTexto = 'Cargando...';
+async function obtenerEquipamiento(forzar) {
+  const cache = leerCacheEquip();
+  if (!forzar && cache && (Date.now() - cache.ts) < EQUIP_CACHE_MS) {
+    equipFuenteTexto = `OpenStreetMap (en caché, ${fechaCorta(cache.ts)})`;
+    return { type: 'FeatureCollection', features: cache.features };
+  }
+  const vivos = await consultarOverpass();
+  if (vivos && vivos.length) {
+    guardarCacheEquip(vivos);
+    equipFuenteTexto = `OpenStreetMap en vivo (${fechaCorta(Date.now())})`;
+    return { type: 'FeatureCollection', features: vivos };
+  }
+  if (cache) {
+    equipFuenteTexto = `Sin conexión a OSM ahora — usando caché del ${fechaCorta(cache.ts)}`;
+    return { type: 'FeatureCollection', features: cache.features };
+  }
+  const snap = await fetch('equipamiento_funes.geojson').then(r => r.json()).catch(() => ({ features: [] }));
+  equipFuenteTexto = 'Sin conexión a OSM — usando relevamiento interno de respaldo';
+  return snap;
+}
+
+function construirCapasEquipamiento(equip) {
+  equipData = equip;
+  for (const cat of Object.keys(equipEstilo)) {
+    const activo = equipLayers[cat] && map.hasLayer(equipLayers[cat]);
+    if (equipLayers[cat]) map.removeLayer(equipLayers[cat]);
+    const feats = equip.features.filter(f => f.properties.categoria === cat);
+    const est = equipEstilo[cat];
+    equipLayers[cat] = L.geoJSON({ type: 'FeatureCollection', features: feats }, {
+      pointToLayer: (f, latlng) => L.circleMarker(latlng, {
+        radius: 6, color: '#fff', weight: 1.5, fillColor: est.color, fillOpacity: 0.9
+      }),
+      onEachFeature: (f, lyr) => {
+        const p = f.properties;
+        let html = `<strong>${p.nombre}</strong><br>${equipNombre[cat]}`;
+        if (p.nivel) html += `<br>${p.nivel}`;
+        if (p.gestion) html += ` (${p.gestion})`;
+        lyr.bindPopup(html);
+      }
+    });
+    if (activo) equipLayers[cat].addTo(map);
+  }
+  document.getElementById('equipEstado').textContent = equipFuenteTexto;
+}
+
+async function cargarEquipamiento(forzar) {
+  document.getElementById('equipEstado').textContent = forzar ? 'Actualizando desde OpenStreetMap...' : 'Cargando...';
+  const equip = await obtenerEquipamiento(forzar);
+  construirCapasEquipamiento(equip);
+}
+
+document.getElementById('btnActualizarEquip').addEventListener('click', () => cargarEquipamiento(true));
+
+Promise.all([
+  fetch('zonificacion_funes.geojson').then(r => r.json()),
+  fetch('ejes_funes.geojson').then(r => r.json()),
+  fetch('restriccion_agua.geojson').then(r => r.json()),
+  fetch('servicios_funes.json').then(r => r.json())
+]).then(([data, ejes, agua, servicios]) => {
+  geoData = data;
+  ejesData = ejes;
+  aguaData = agua;
+  serviciosData = servicios;
+  cargarEquipamiento(false);
+
+  geoLayer = L.geoJSON(data, {
+    style: f => ({ color: colorFor(f.properties.zona_grupo), weight: 1, fillColor: colorFor(f.properties.zona_grupo), fillOpacity: 0.35 }),
+    onEachFeature: (f, lyr) => {
+      lyr.on('click', (e) => {
+        clearHighlight();
+        highlighted = lyr;
+        lyr.setStyle({ weight: 3, color: '#111', fillOpacity: 0.55 });
+        const pt = turf.point([e.latlng.lng, e.latlng.lat]);
+        let html = estaDentroDeAlguno(pt, aguaData) ? aguaWarningHTML() : '';
+        let tieneEjeClick = false;
+        if (ejesData) {
+          for (const ej of ejesData.features) {
+            const buf = turf.buffer(ej, EJE_BUFFER_KM, { units: 'kilometers' });
+            if (turf.booleanPointInPolygon(pt, buf)) { html += ejeFichaHTML(ej.properties); tieneEjeClick = true; }
+          }
+        }
+        html += fichaHTML(f.properties, tieneEjeClick);
+        html += serviciosHTML(pt);
+        html += cercaTuyoHTML(pt);
+        document.getElementById('result').innerHTML = html;
+        recalcSimulador();
+      });
+      lyr.on('mouseover', () => lyr.setStyle({ fillOpacity: 0.6 }));
+      lyr.on('mouseout', () => lyr.setStyle({ fillOpacity: 0.35 }));
+    }
+  }).addTo(map);
+
+  ejesLayer = L.geoJSON(ejes, {
+    style: { color: '#b8860b', weight: 4, dashArray: '2 6' },
+    onEachFeature: (f, lyr) => {
+      lyr.bindTooltip(`Eje: ${f.properties.nombre_calle}`, { sticky: true });
+      lyr.on('click', () => { clearHighlight(); document.getElementById('result').innerHTML = ejeFichaHTML(f.properties); });
+    }
+  }).addTo(map);
+
+  aguaLayer = L.geoJSON(agua, {
+    style: { color: '#1565c0', weight: 1, fillColor: '#64b5f6', fillOpacity: 0.4, dashArray: '4 3' }
+  }).addTo(map);
+  aguaLayer.bindTooltip('Franja de restricción: no se permite construir (Art. 13, Ordenanza 288/85)');
+
+  requestAnimationFrame(() => {
+    map.invalidateSize();
+    map.fitBounds(geoLayer.getBounds());
+  });
+  buildLegend(data);
+}).catch(err => {
+  document.getElementById('searchStatus').textContent = 'Error cargando datos: ' + err;
+});
+
+document.getElementById('toggleAgua').addEventListener('change', e => {
+  if (!aguaLayer) return;
+  if (e.target.checked) map.addLayer(aguaLayer); else map.removeLayer(aguaLayer);
+});
+for (const cat of ['Salud', 'Educacion', 'Farmacia']) {
+  document.getElementById('toggle' + cat).addEventListener('change', e => {
+    const key = cat.toLowerCase();
+    if (!equipLayers[key]) return;
+    if (e.target.checked) map.addLayer(equipLayers[key]); else map.removeLayer(equipLayers[key]);
+  });
+}
+
+function buildLegend(data) {
+  const grupos = [...new Set(data.features.map(f => grupoDe(f.properties.zona_grupo)))];
+  const el = document.getElementById('legendZonas');
+  el.innerHTML = grupos.map(g => `
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:${palette[g] || '#888'}"></span>
+      <span>${nombres[g] || g}</span>
+    </div>`).join('') + `
+    <div class="legend-item">
+      <span class="legend-swatch" style="background:#b8860b"></span>
+      <span>Eje con índice especial</span>
+    </div>`;
+}
+
+function showFicha(props) {
+  document.getElementById('result').innerHTML = fichaHTML(props);
+  recalcSimulador();
+}
+
+let marker = null;
+let highlighted = null;
+function clearHighlight() {
+  if (highlighted) {
+    geoLayer.resetStyle(highlighted);
+    highlighted = null;
+  }
+}
+// Bounding box de Funes (de la propia zonificación relevada), para acotar el geocoder
+const FUNES_BBOX = { west: -60.90, south: -32.96, east: -60.74, north: -32.87 };
+
+function estaDentroDeAlguno(pt, fc) {
+  if (!fc) return false;
+  return fc.features.some(f => {
+    try { return turf.booleanPointInPolygon(pt, f); } catch (e) { return false; }
+  });
+}
+
+function aguaWarningHTML() {
+  return `<div class="warning-card">
+    <strong>⚠️ Franja de restricción por curso de agua</strong>
+    Este punto cae dentro de la franja de restricción de un arroyo, laguna o canal. Según el Art. 13 de la Ordenanza 288/85, en esa franja (20 a 50 m según el caso) <strong>no está permitido construir</strong>, más allá de lo que indique la zona.
+  </div>`;
+}
+
+function serviciosHTML(pt) {
+  if (!serviciosData) return '';
+  const estado = {
+    agua: estaDentroDeAlguno(pt, serviciosData.agua),
+    gas: estaDentroDeAlguno(pt, serviciosData.gas),
+    cloaca: estaDentroDeAlguno(pt, serviciosData.cloaca)
+  };
+  const nombres2 = { agua: 'Agua potable', gas: 'Gas de red', cloaca: 'Cloaca' };
+  const badges = Object.keys(estado).map(k => `<span class="svc-badge ${estado[k] ? 'svc-si' : 'svc-no'}">${nombres2[k]}: ${estado[k] ? 'Sí' : 'No'}</span>`).join('');
+  return `<div class="card">
+    <strong style="font-size:13px;">Cobertura de servicios</strong>
+    <div class="badge-row">${badges}</div>
+    <div class="disclaimer">Según relevamiento SIG de la Comuna. No reemplaza una factibilidad de servicios formal.</div>
+  </div>`;
+}
+
+function cercaTuyoHTML(pt) {
+  if (!equipData) return '';
+  const items = [];
+  for (const cat of Object.keys(equipEstilo)) {
+    let mejor = null, mejorDist = Infinity;
+    for (const f of equipData.features) {
+      if (f.properties.categoria !== cat) continue;
+      const d = turf.distance(pt, f, { units: 'meters' });
+      if (d < mejorDist) { mejorDist = d; mejor = f; }
+    }
+    if (mejor && mejorDist < 3000) {
+      items.push(`<div class="cerca-item"><span>${equipEstilo[cat].icono} ${mejor.properties.nombre}</span><span>${Math.round(mejorDist)} m</span></div>`);
+    }
+  }
+  if (!items.length) return '';
+  return `<div class="card">
+    <strong style="font-size:13px;">Lo más cercano</strong>
+    <div style="margin-top:4px;">${items.join('')}</div>
+  </div>`;
+}
+
+function ubicarPunto(lat, lon) {
+  if (marker) map.removeLayer(marker);
+  marker = L.marker([lat, lon]).addTo(map);
+  map.setView([lat, lon], 17);
+
+  const pt = turf.point([lon, lat]);
+  let found = null;
+  clearHighlight();
+  if (geoLayer) {
+    geoLayer.eachLayer(lyr => {
+      if (!found && turf.booleanPointInPolygon(pt, lyr.feature)) {
+        found = lyr.feature.properties;
+        highlighted = lyr;
+        lyr.setStyle({ weight: 3, color: '#111', fillOpacity: 0.55 });
+      }
+    });
+  }
+  let ejeHTML = '';
+  if (ejesData) {
+    for (const f of ejesData.features) {
+      const buf = turf.buffer(f, EJE_BUFFER_KM, { units: 'kilometers' });
+      if (turf.booleanPointInPolygon(pt, buf)) { ejeHTML += ejeFichaHTML(f.properties); }
+    }
+  }
+  const enRestriccionAgua = estaDentroDeAlguno(pt, aguaData);
+
+  let html = '';
+  if (enRestriccionAgua) html += aguaWarningHTML();
+  if (ejeHTML) html += ejeHTML;
+  if (found) {
+    html += fichaHTML(found, !!ejeHTML);
+  } else if (!ejeHTML && !enRestriccionAgua) {
+    html += '<p class="empty-hint">Esa dirección está fuera de las zonas con índices cargados todavía (ej. AR5, AR6, Área Industrial), o fuera del ejido relevado.</p>';
+  }
+  html += serviciosHTML(pt);
+  html += cercaTuyoHTML(pt);
+  document.getElementById('result').innerHTML = html;
+  recalcSimulador();
+}
+
+// Nominatim no entiende "calle A y calle B" como una esquina: lo trata como texto libre,
+// encuentra sólo la primera calle que matchea y listo, puede devolver cualquier punto a lo largo
+// de ella. Además Funes tiene varios barrios privados con calles internas que repiten nombres
+// genéricos ("Santa Fe", "Elorza", etc.), así que ni siquiera alcanza con buscar cada calle por
+// separado y cruzarlas: no hay garantía de agarrar el tramo correcto. Mejor avisar que adivinar mal.
+function esDireccionConEsquina(q) {
+  return /^(.+?)\s+(?:y|esq\.?|esquina)\s+(.+)$/i.test(q);
+}
+
+async function buscarDireccion() {
+  const q = document.getElementById('searchInput').value.trim();
+  const status = document.getElementById('searchStatus');
+  if (!q) { status.textContent = 'Escribí una dirección primero.'; return; }
+  if (esDireccionConEsquina(q)) {
+    status.textContent = '';
+    document.getElementById('result').innerHTML = '<p class="empty-hint">La búsqueda por esquina (ej. "Elorza y Santa Fe") todavía no es confiable: Funes tiene varias calles con el mismo nombre en distintos barrios, y el buscador puede ubicar el cruce equivocado. Probá con una dirección con altura, por ejemplo "Av. Santa Fe 1689".</p>';
+    return;
+  }
+  status.textContent = 'Buscando...';
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=ar&q=${encodeURIComponent(q + ', Funes, Santa Fe, Argentina')}`;
+    const res = await fetch(url);
+    const rows = await res.json();
+    if (!rows.length) { status.textContent = 'No se encontró esa dirección.'; return; }
+    const lat = parseFloat(rows[0].lat), lon = parseFloat(rows[0].lon);
+    status.textContent = '';
+    ubicarPunto(lat, lon);
+  } catch (err) {
+    status.textContent = 'Error buscando: ' + err;
+  }
+}
+document.getElementById('searchBtn').addEventListener('click', buscarDireccion);
+document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') buscarDireccion(); });
+</script>
+</body>
+</html>
