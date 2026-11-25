@@ -218,6 +218,16 @@ function temasAdicionales(p) {
   const grupo = p.zona_grupo;
   const temas = [];
 
+  temas.push(topicItem('Emprendimientos chicos (hasta 40 m²) en cualquier zona',
+    'El Art. 5° autoriza instalar un emprendimiento o actividad de hasta 40 m² (inclusive) en todo el ejido de Funes, sin importar la zona, <strong>excepto</strong> estos rubros: gas envasado con depósito anexo, materiales de construcción clase II y III, bar/cafetería/chopería/pizzería/bar americano al paso, farmacia, vidriería, taller de autos/motos, herrería/carpintería, lavadero de auto, carnicería/pollería, alquiler de volquetes, venta de motos.<br><br>' +
+    'Además, hay una lista de rubros chicos ya preaprobados (Ordenanza 342/04 y 591/09) para ciertas zonas catastrales específicas — almacén, kiosco, peluquería, inmobiliaria, veterinaria, librería, remises, y otros similares — pero esa clasificación catastral es distinta de las zonas de este mapa, así que conviene confirmar con el Concejo si tu caso entra ahí.<br><br>' +
+    'Para confirmar si tu actividad puntual es viable en tu dirección, la Municipalidad tiene un trámite llamado <strong>"Factibilidad de Actividad"</strong> (Ordenanza 1198/19).'));
+
+  if (['AR3', 'AR4'].includes(grupo)) {
+    temas.push(topicItem('Hoteles y alojamiento autorizados en esta zona',
+      'La Ordenanza 720/11 autoriza específicamente el rubro "Hoteles y otros lugares de alojamiento" en los sectores AR3 y AR4, uso que normalmente no estaría permitido en una zona puramente residencial.'));
+  }
+
   if (['AC', 'AN', 'AR3', 'AR4', 'ALR'].includes(grupo)) {
     temas.push(topicItem('Si vas a fraccionar este lote',
       'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.<br><br>Para subdivisiones, la tabla de índices admite una <strong>tolerancia de ±20%</strong>, pero solo en una de las variables (por ejemplo, en la superficie mínima o en el frente mínimo, no en ambas a la vez).'));
@@ -264,6 +274,7 @@ function retiroEsquinaHTML(p) {
   return `<div class="retiro-esquina">
     <strong>📐 Si tu lote es esquina: retiro distinto</strong>
     <table>${filas.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>
+    <div style="margin-top:6px; font-size:11px; color:#7a5b00;">Si es un lote nuevo (loteo), además tiene que tener un 20% más de frente mínimo que el resto de los lotes de la zona (Art. 43).</div>
   </div>`;
 }
 
