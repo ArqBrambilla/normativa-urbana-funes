@@ -226,6 +226,14 @@ function temasAdicionales(p) {
     temas.push(topicItem('Loteo restringido (ALR): cerramientos y servicios',
       'Si el emprendimiento tiene cerramiento entre el dominio privado y el espacio verde público, ese cerramiento no se puede modificar. Los servicios (electricidad, telecomunicaciones, etc.) dentro del área y en sus veredas deben ser subterráneos (Art. 16 bis, Ordenanza 617/09).'));
   }
+  if (p.cod_zona === 'AN2_3') {
+    temas.push(topicItem('Funes Norte: usos y retiros diferenciados',
+      'Esta zona (Ordenanza 631/09) admite residencia, salud, educación, recreación y comercio, cada uno con su propio retiro:<br><br>' +
+      '<strong>Vivienda:</strong> 3 m sobre línea municipal + 2 m obligatorio sobre ambas medianeras.<br>' +
+      '<strong>Comercio, salud, educación y recreación:</strong> 3 m sobre línea municipal, sin retiro obligatorio a medianeras.<br><br>' +
+      '<strong>Usos no admitidos en esta zona:</strong> casas fúnebres/velatorios, locales bailables, laboratorios, industrias, shoppings o hipermercados de más de 500 m², galpones, talleres, cocheras y depósitos.<br><br>' +
+      'El emprendedor debe ceder el 9% a espacio verde y el 7% a reserva fiscal (16% total), ubicados en los parques centrales del predio.'));
+  }
   return temas;
 }
 
@@ -250,6 +258,11 @@ function retiroEsquinaHTML(p) {
   </div>`;
 }
 
+function retirosDisplay(p) {
+  if (p.zona_grupo === 'AE') return '10 m frente + 10 m fondo (con servidumbre de jardín) + 2 m laterales';
+  return fmt(p.retiros);
+}
+
 function centroManzanaValor(p) {
   const grupo = p.zona_grupo;
   if (grupo === 'AC') return 'Sí — hasta 33,33 m de fondo (manzana de 100 m)';
@@ -266,6 +279,8 @@ const GLOSARIO_HTML = `<dl>
   <dd style="margin-top:4px;">También admite hasta 10% de tolerancia sobre el máximo.</dd>
   <dt>Altura máxima</dt><dd>Cantidad de pisos permitidos (PB = planta baja) y su equivalente en metros, según lo que fije cada zona en el Anexo II.</dd>
   <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote (línea municipal, medianeras o fondo), según lo que fije cada zona.</dd>
+  <dt>Servidumbre de jardín</dt><dd>Un retiro que además tiene que quedar parquizado (con pasto/jardín): no se puede cubrir con piso, solado ni techo de ningún tipo.</dd>
+  <dt>Entrepiso</dt><dd>Un nivel intermedio dentro de un mismo ambiente (no es un piso aparte): puede cubrir hasta el 75% de la superficie del piso de abajo, cuenta 100% para el F.O.T., y no puede cerrarse ni subdividirse como una unidad independiente.</dd>
   <dt>Centro de manzana</dt><dd>En Área Central y Área Norte se construye pegado a la línea municipal, pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda sin construir, compartido con los lotes vecinos de la manzana. En el resto de las zonas no aplica (los retiros ya cubren todo el perímetro del lote).</dd>
   <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote en esta zona para construir o subdividir, según el Anexo I.</dd>
 </dl>`;
@@ -283,7 +298,7 @@ function fichaHTML(p, tieneEje) {
         <tr><td>F.O.T. máx / mín</td><td>${fmt(p.fot_max)} / ${fmt(p.fot_min)}</td></tr>
         <tr><td>F.O.S. máx / mín</td><td>${fmt(p.fos_max)} / ${fmt(p.fos_min)}</td></tr>
         <tr><td>Altura máx / mín</td><td>${fmt(p.altura_max)} / ${fmt(p.altura_min)}</td></tr>
-        <tr><td>Retiros</td><td>${fmt(p.retiros)}</td></tr>
+        <tr><td>Retiros</td><td>${retirosDisplay(p)}</td></tr>
         <tr><td>Centro de manzana</td><td>${centroManzanaValor(p)}</td></tr>
       </table>
       ${retiroEsquinaHTML(p)}
