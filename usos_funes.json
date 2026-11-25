@@ -1,0 +1,2398 @@
+{
+ "categorias": [
+  {
+   "num": "1",
+   "nombre": "ADMINISTRACIÓN PÚBLICA",
+   "items": [
+    {
+     "codigo": "1.1",
+     "actividad": "CORREO CENTRAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.2",
+     "actividad": "CUARTEL DE BOMBEROS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.3",
+     "actividad": "OFICINA PÚBLICA SIN ACCESO DE PÚBLICO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.4",
+     "actividad": "OFICINAS DESCENTRALIZADAS (REG. CIVIL / AFIP / TELÉFONOS / ETC.)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.5",
+     "actividad": "OFICINAS PÚBLICA CON ACCESO DE PÚBLICO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.6",
+     "actividad": "POLICIA (COMISARIA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.7",
+     "actividad": "POLICIA (DEPARTAMENTO CENTRAL)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "1.8",
+     "actividad": "SUCURSAL DE CORREOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "2",
+   "nombre": "CULTURA / CULTO / ESPARCIMIENTO",
+   "items": [
+    {
+     "codigo": "2.1",
+     "actividad": "AUTOCINE",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.2",
+     "actividad": "AUTÓDROMO / ESTADIO / HIPÓDROMO / VELÓDROMO / ETC.",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.3",
+     "actividad": "BIBLIOTECA CENTRAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.4",
+     "actividad": "BIBLIOTECA LOCAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.5",
+     "actividad": "CAFÉ CONCERT / BOITE / SALÓN DE BAILE / CASA DE FIESTAS / ETC.",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.6",
+     "actividad": "CANCHAS DE GOLF",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.7",
+     "actividad": "CENTRO DE EXPOSICIONES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Se podrían eliminar del area norte ya que no encontre en la zona."
+    },
+    {
+     "codigo": "2.8",
+     "actividad": "CINE / CINE-TEATRO / TEATRO / AUDITORIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.9",
+     "actividad": "CIRCO RODANTE",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.10",
+     "actividad": "CLUB DEPORTIVO CON INSTALACIONES AL AIRE LIBRE",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.11",
+     "actividad": "CLUB SOCIAL Y CULTURAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.12",
+     "actividad": "EXPOSICIÓN / GALERIA DE ARTE",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.13",
+     "actividad": "GIMNASIO / NATATORIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.14",
+     "actividad": "JARDÍN BOTÁNICO / ZOOLÓGICO / ACUARIO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.15",
+     "actividad": "MUSEO CLASE I / COLECCIONES PERMANENTES Y TEMPORARIAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.16",
+     "actividad": "MUSEO CLASE II / CONDICIONADO POR EL INMUEBLE",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.17",
+     "actividad": "TEMPLO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "2.18",
+     "actividad": "CLUB DE TIRO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "3",
+   "nombre": "EDUCACIÓN",
+   "items": [
+    {
+     "codigo": "3.1",
+     "actividad": "CAMPUS UNIVERSITARIO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": "P"
+     },
+     "obs": "Zona rural"
+    },
+    {
+     "codigo": "3.2",
+     "actividad": "ESCUELA DIFERENCIAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.3",
+     "actividad": "ESCUELA O COLEGIO / CON INTERNADO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.4",
+     "actividad": "GUARDERÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.5",
+     "actividad": "INSTITUTO DE INVESTIGACIÓN CON LABORATORIO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": "P"
+     },
+     "obs": "Zona rural"
+    },
+    {
+     "codigo": "3.6",
+     "actividad": "INSTITUTO DE INVESTIGACIÓN SIN LABORATORIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.7",
+     "actividad": "INSTITUTOS TÉCNICOS - ACADEMIAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.8",
+     "actividad": "PRE-ESCOLAR",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.9",
+     "actividad": "PRIMARIA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.10",
+     "actividad": "SECUNDARIA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "3.11",
+     "actividad": "UNIVERSITARIA Y SUPERIOR NO UNIVERSITARIA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "4",
+   "nombre": "SANIDAD",
+   "items": [
+    {
+     "codigo": "4.1",
+     "actividad": "CASA DE REPOSO Y CONVALECENCIA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.2",
+     "actividad": "DISPENSARIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.3",
+     "actividad": "HOSPITAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.4",
+     "actividad": "HOSPITAL ESPECIALIZADO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.5",
+     "actividad": "PRIMEROS AUXILIOS / CONSULTORIOS EXTERNOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.6",
+     "actividad": "SANATORIOS PARA ENFERMOS MENTALES",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "4.7",
+     "actividad": "SANATORIOS PRIVADOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "5",
+   "nombre": "SERVICIOS",
+   "items": [
+    {
+     "codigo": "5.1",
+     "actividad": "AGENCIAS COMERCIALES / DE EMPLEO / TURISMO / ETC.",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.2",
+     "actividad": "ALIMENTACIÓN EN GENERAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.3",
+     "actividad": "BAR / CAFÉ",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.4",
+     "actividad": "BANCO CASA CENTRAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.5",
+     "actividad": "BANCOS Y OFICINAS CREDITICIAS Y FINANCIERAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.6",
+     "actividad": "BOLSA DE VALORES Y DE COMERCIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.7",
+     "actividad": "COPIAS / REPRODUCCIÓN / FOTOGRAFÍA / SALVO IMPRENTA Y COPIAS HELIOGRÁFICAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.8",
+     "actividad": "ESTACIÓN DE RADIO Y/O TELEVISIÓN (PLANTA TRANSMISORA)",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "5.9",
+     "actividad": "ESTACIÓN DE SERVICIO Y GARAJE COMERCIAL (MENOS DE 150 COCHES / CUADRA)",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "Anteriormente estaba en EC"
+    },
+    {
+     "codigo": "5.10",
+     "actividad": "ESTUDIO DE RADIO Y TELEVISIÓN",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "5.11",
+     "actividad": "ESTUDIOS Y CONSULTORIOS PROFESIONALES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.12",
+     "actividad": "ESTUDIOS Y CONSULTORIOS PROFESIONALES ANEXO A VIVIENDA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.13",
+     "actividad": "FUNEBRES (CON DEPÓSITO Y/O GARAGE)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.14",
+     "actividad": "FUNEBRES (OFICINA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.15",
+     "actividad": "HOTEL POR HORAS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "5.16",
+     "actividad": "HOTELES Y OTROS LUGARES DE ALOJAMIENTO / SALVO HOTEL POR HORAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.17",
+     "actividad": "LABORATORIO DE ANÁLISIS INDUSTRIALES",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.18",
+     "actividad": "LABORATORIO DE ANÁLISIS NO INDUSTRIALES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.19",
+     "actividad": "LAVANDERÍA / TINTORERÍA (RECEPTORÍA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.20",
+     "actividad": "OFICINAS EN GENERAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.21",
+     "actividad": "PELUQUERÍA Y BARBERÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.22",
+     "actividad": "PERSONALES DIRECTOS EN GENERAL",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.23",
+     "actividad": "PLAYA DE ESTACIONAMIENTO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Se repiten TRANSPORTE"
+    },
+    {
+     "codigo": "5.24",
+     "actividad": "PRESTACIONES CON ALGÚN PROCESO INDUSTRIAL O ARTESANAL - CLASE 3",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Solo artesanal"
+    },
+    {
+     "codigo": "5.25",
+     "actividad": "PRESTACIONES CON ALGÚN PROCESO INDUSTRIAL O ARTESANAL - CLASE 4",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Solo artesanal"
+    },
+    {
+     "codigo": "5.26",
+     "actividad": "PRESTACIONES CON ALGÚN PROCESO INDUSTRIAL O ARTESANAL - CLASE 5",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Solo artesanal"
+    },
+    {
+     "codigo": "5.27",
+     "actividad": "PRESTACIONES CON ALGÚN PROCESO INDUSTRIAL O ARTESANAL - CLASE 6",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Solo artesanal"
+    },
+    {
+     "codigo": "5.28",
+     "actividad": "PROCESAMIENTO DE DATOS Y TABULACIÓN",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "5.29",
+     "actividad": "VELATORIO",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "6",
+   "nombre": "COMERCIO MAYORISTA",
+   "items": [
+    {
+     "codigo": "6.1",
+     "actividad": "SIN DEPÓSITO (EXPOSICIÓN Y VENTA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "6.2",
+     "actividad": "CON DEPÓSITO (EXCEPTO PRODUCTOS PERECEDEROS)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "7",
+   "nombre": "COMERCIO MINORISTA",
+   "items": [
+    {
+     "codigo": "7.1",
+     "actividad": "ANTIGÜEDADES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.2",
+     "actividad": "ARTÍCULOS DE DEPORTES / ARMERÍA / CUCHILLERÍA / ÓPTICA / ORTOPEDIA / INSTRUMENTOS DE PRECISIÓN CIENTÍFICOS Y MUSICALES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.3",
+     "actividad": "AUTOMOTORES Y ACCESORIOS / EMBARCACIONES Y AVIONES (EXPOSICIÓN Y VENTA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.4",
+     "actividad": "BAZAR / PLATERÍA / CRISTALERÍA / ARTÍCULOS DE ILUMINACIÓN Y DEL HOGAR",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.5",
+     "actividad": "CERRAJERÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.6",
+     "actividad": "FARMACIA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.7",
+     "actividad": "FERRETERÍA / HERRAJES Y REPUESTOS / MATERIALES ELÉCTRICOS /PAPELEPINTADOS / PAPELERÍA / ALMACENES NAVALES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.8",
+     "actividad": "FLORERÍA / SEMILLERÍA Y ARTÍCULOS PARA JARDINERÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.9",
+     "actividad": "GALERÍAS COMERCIALES / GRANDES TIENDAS / AUTOSERVICIOS DE PRODUCTOS ALIMENTICIOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.10",
+     "actividad": "GAS ENVASADO / DEPÓSITO ANEXO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "7.11",
+     "actividad": "GAS ENVASADO / DISTRIBUCIÓN HASTA 100 KGS.",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "7.12",
+     "actividad": "JOYERÍA Y RELOJERÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.13",
+     "actividad": "MAQUINARIAS / HERRAMIENTAS Y MOTORES INDUSTRIALES Y AGRÍCOLAS (EXPOSICIÓN Y VENTAS)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.14",
+     "actividad": "MÁQUINAS DE OFICINAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.15",
+     "actividad": "MATERIALES DE CONSTRUCCIÓN CLASE I (EXPOSICIÓN Y VENTA)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.16",
+     "actividad": "MATERIALES DE CONSTRUCCIÓN CLASE II (CON DEPÓSITO SIN MATERIALES A GRANEL)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.17",
+     "actividad": "MATERIALES DE CONSTRUCCIÓN CLASE III (SIN EXCLUSIONES)",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.18",
+     "actividad": "MERCADO Y FERIAS INTERNADAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.19",
+     "actividad": "MERCERÍA / BOTONERÍA / BONETERÍA / FANTASÍA",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.20",
+     "actividad": "MUEBLES EN GENERAL / PRODUCTOS DE MADERA Y MIMBRE / COLCHONES Y AFINES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.21",
+     "actividad": "RODADOS / BICICLETAS / MOTOCICLETAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.22",
+     "actividad": "PAPELERÍA / LIBRERÍA / CARTONERÍA / IMPRESOS / COTILLÓN / FILATELIA / VENTA DE DISCOS Y GRABACIONES / JUGUETES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.23",
+     "actividad": "PERFUMERÍA / ARTÍCULOS DE LIMPIEZA Y TOCADOR",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.24",
+     "actividad": "PRODUCTOS ALIMENTICIOS / BEBIDAS Y TABACO EXCLUIDOS FERIAS / MERCADOS / SUPERMERCADOS Y AUTOSERVICIOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.25",
+     "actividad": "KIOSCOS / DIARIOS / REVISTAS / CIGARRILLOS / LOTERÍA / GOLOSINAS / ETC.",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.26",
+     "actividad": "SANTERÍA, ARTÍCULOS DE CULTO Y RITUALES",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.27",
+     "actividad": "SUPERMERCADO TOTAL",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.28",
+     "actividad": "SUPERMERCADOS / AUTOSERVICIOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.29",
+     "actividad": "SUSTANCIAS QUÍMICAS / CAUCHO Y PLÁSTICOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "7.30",
+     "actividad": "TEXTILES / PIELES / CUEROS / ARTÍCULOS PERSONALES, DEL HOGAR Y AFINES / REGALOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.31",
+     "actividad": "VETERINARIA / VENTA DE ANIMALES DOMÉSTICOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.32",
+     "actividad": "VIDRIOS Y ESPEJOS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "7.33",
+     "actividad": "VIVEROS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  },
+  {
+   "num": "8",
+   "nombre": "TRANSPORTES",
+   "items": [
+    {
+     "codigo": "8.1",
+     "actividad": "DEPÓSITO DE EQUIPOS FERROVIARIOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.2",
+     "actividad": "DEPÓSITO DE MERCADERÍAS EN TRÁNSITO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.3",
+     "actividad": "ESTACIÓN INTERMEDIA DE SUBTERRÁNEOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.4",
+     "actividad": "ESTACIÓN INTERMEDIA DE TREN SUBURBANO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "8.5",
+     "actividad": "ESTACIÓN TERMINAL DE SUBTERRÁNEOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.6",
+     "actividad": "ESTACIÓN TERMINAL DE FERROCARRIL DE LARGA DISTANCIA",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.7",
+     "actividad": "ESTACIÓN TERMINAL DE ÓMNIBUS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "8.8",
+     "actividad": "ESTACIÓN TERMINAL DE ÓMNIBUS Y COLECTIVOS DE RECORRIDO URBANO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "8.9",
+     "actividad": "ESTACIÓN TERMINAL DE TREN SUBURBANO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.10",
+     "actividad": "EXPRESO DE CARGA LIVIANA",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.11",
+     "actividad": "GARAGE DE SUBTERRÁNEOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.12",
+     "actividad": "GARAGE PARA CAMIONES Y MATERIAL RODANTE, PÚBLICO Y PRIVADO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.13",
+     "actividad": "GARAGE PARA ÓMNIBUS Y COLECTIVOS",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.14",
+     "actividad": "HELIPUERTO",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": "A determinar"
+    },
+    {
+     "codigo": "8.15",
+     "actividad": "SERVICIOS DEL AUTOMOTOR",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.15.1",
+     "actividad": "TALLERES PEQUEÑOS ESCALA HASTA 300M2",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.15.2",
+     "actividad": "TALLERES MEDIANA Y GRAN ESCALA (MÁS DE 300 M²)",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.15.3",
+     "actividad": "LAVADEROS PEQUEÑOS ESCALA (HASTA 600 M²)",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.15.4",
+     "actividad": "LAVADEROS MEDIANA Y GRAN ESCALA (> 600 M²)",
+     "valores": {
+      "AC": "",
+      "EJ_AC": "",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "8.15.5",
+     "actividad": "PLAYAS DE ESTACIONAMIENTO Y/O COCHERAS",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "",
+      "AN2_1": "",
+      "AN2_3": "",
+      "AN2_4": "",
+      "AN2_5": "",
+      "AR3": "",
+      "AR4": "",
+      "AEQ": "P",
+      "ZR": ""
+     },
+     "obs": "Agregúe el P que estaba en el otro. Y a este le cambié garages por cocheras como esta en rosario."
+    }
+   ]
+  },
+  {
+   "num": "9",
+   "nombre": "VIVIENDAS",
+   "items": [
+    {
+     "codigo": "9.1",
+     "actividad": "VIVIENDA UNIFAMILIAR",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    },
+    {
+     "codigo": "9.2",
+     "actividad": "VIVIENDA MULTIFAMILIAR",
+     "valores": {
+      "AC": "P",
+      "EJ_AC": "P",
+      "AN1_1": "P",
+      "AN2_1": "P",
+      "AN2_3": "P",
+      "AN2_4": "P",
+      "AN2_5": "P",
+      "AR3": "P",
+      "AR4": "P",
+      "AEQ": "",
+      "ZR": ""
+     },
+     "obs": ""
+    }
+   ]
+  }
+ ]
+}

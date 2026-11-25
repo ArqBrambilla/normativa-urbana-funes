@@ -259,6 +259,46 @@ function temasAdicionales(p) {
   return temas;
 }
 
+function capSentence(str) {
+  const s = str.toLowerCase();
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function usosColumna(p) {
+  const grupo = p.zona_grupo;
+  if (grupo === 'AC') return 'AC';
+  if (grupo === 'AN') return p.cod_zona; // AN1_1, AN2_1, AN2_3, AN2_4 o AN2_5
+  if (grupo === 'AR3') return 'AR3';
+  if (grupo === 'AR4') return 'AR4';
+  if (grupo === 'AE') return 'AEQ';
+  return null;
+}
+
+function usosEstado(valor, obs) {
+  if (valor === 'P') return { icono: '✅', texto: 'Permitido' };
+  if (obs && obs.toLowerCase().includes('determinar')) return { icono: '🕓', texto: 'A determinar' };
+  return { icono: '⛔', texto: 'No permitido' };
+}
+
+function usosHTML(p) {
+  const col = usosColumna(p);
+  if (!col || !usosData) return '';
+  let cuerpo = '<div style="font-size:11px; color:#888; margin-bottom:8px;">Según el cuadro de usos de suelo actualizado (Anexo I, Ordenanza 1905/25). Algunos rubros figuran "a determinar" porque todavía no están resueltos formalmente — conviene confirmarlos con el Concejo.</div>';
+  for (const cat of usosData.categorias) {
+    const filas = cat.items.map(it => {
+      const valor = it.valores[col] || '';
+      const est = usosEstado(valor, it.obs);
+      let fila = `<div style="display:flex; justify-content:space-between; gap:8px; padding:3px 0; border-top:1px solid #f0f0ee; font-size:12px;"><span>${capSentence(it.actividad)}</span><span style="white-space:nowrap;">${est.icono} ${est.texto}</span></div>`;
+      if (it.obs && est.texto !== 'A determinar') {
+        fila += `<div style="font-size:11px; color:#999; margin:-2px 0 4px;">${it.obs}</div>`;
+      }
+      return fila;
+    }).join('');
+    cuerpo += `<details style="margin-bottom:4px;"><summary style="cursor:pointer; font-size:12px; font-weight:600; color:#333;">${cat.num}. ${capSentence(cat.nombre)}</summary><div style="margin-top:2px;">${filas}</div></details>`;
+  }
+  return topicItem(`Usos de suelo permitidos`, cuerpo);
+}
+
 const RETIRO_ESQUINA = {
   AR3: [['Hasta 350 m²', '2 m (ambos lados)'], ['Hasta 600 m²', '2 m / 4 m'], ['Más de 600 m²', '4 m (ambos lados)']],
   AR4: [['Hasta 350 m²', '3 m (ambos lados)'], ['Hasta 600 m²', '3 m / 4 m'], ['Más de 600 m²', '5 m (ambos lados)']]
@@ -330,6 +370,7 @@ function fichaHTML(p, tieneEje) {
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
         <div style="font-size:11px; color:#999; margin:-2px 0 6px; line-height:1.4;">Orientación para entender la normativa, no un reemplazo del texto legal vigente.</div>
         ${topicItem('Glosario: FOT, FOS, altura, retiro', GLOSARIO_HTML)}
+        ${usosHTML(p)}
         ${temasAdicionales(p).join('')}
       </div>
       <div class="disclaimer">Dato informativo seg&uacute;n Ordenanza 288/85 y modificatorias relevadas en QGIS. No reemplaza el certificado oficial de factibilidad emitido por el Concejo.</div>
@@ -359,6 +400,7 @@ function ejeFichaHTML(p) {
 let aguaData = null;
 let aguaLayer = null;
 let serviciosData = null;
+let usosData = null;
 let equipData = null;
 const equipLayers = {};
 const svcLayers = {};
@@ -485,12 +527,14 @@ Promise.all([
   fetch('zonificacion_funes.geojson').then(r => r.json()),
   fetch('ejes_funes.geojson').then(r => r.json()),
   fetch('restriccion_agua.geojson').then(r => r.json()),
-  fetch('servicios_funes.json').then(r => r.json())
-]).then(([data, ejes, agua, servicios]) => {
+  fetch('servicios_funes.json').then(r => r.json()),
+  fetch('usos_funes.json').then(r => r.json())
+]).then(([data, ejes, agua, servicios, usos]) => {
   geoData = data;
   ejesData = ejes;
   aguaData = agua;
   serviciosData = servicios;
+  usosData = usos;
   cargarEquipamiento(false);
 
   geoLayer = L.geoJSON(data, {
