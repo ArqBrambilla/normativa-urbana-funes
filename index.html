@@ -222,6 +222,15 @@ function temasAdicionales(p) {
     temas.push(topicItem('Si vas a fraccionar este lote',
       'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.<br><br>Para subdivisiones, la tabla de índices admite una <strong>tolerancia de ±20%</strong>, pero solo en una de las variables (por ejemplo, en la superficie mínima o en el frente mínimo, no en ambas a la vez).'));
   }
+  if (['AC', 'AN', 'AR3', 'AR4'].includes(grupo) || p.cod_zona === 'ALR_4') {
+    temas.push(topicItem('Comercios y servicios permitidos aunque seas zona residencial',
+      'Si tu lote da sobre una de las calles de abajo ("eje o arteria primaria"), podés instalar actividades de estos rubros aunque la zona sea residencial (Ordenanza 102/96 y 978/14): Administración Pública, Cultura/Culto/Esparcimiento, Educación, Sanidad, Servicios, y Comercio mayorista o minorista.<br><br>' +
+      '<strong>Arterias primarias (dirección Este-Oeste):</strong> Vieytes, Vélez Sarsfield, Buenos Aires, Bv. Pedro A. Ríos, Bv. Tomás de la Torre, Av. Santa Fe, Av. B. Houssay, Av. Fuerza Aérea.<br>' +
+      '<strong>Arterias primarias (dirección Norte-Sur):</strong> San Sebastián, Miami, Gral. Las Heras, José Hernández, Almafuerte, Gral. Moscóni, Gral. López, Elorza, H. Irigoyen, Independencia, Catamarca, Bv. B. Mitre, Esteban de Luca, Echeverría, Jorge Newbery.<br>' +
+      '<strong>Calle Rosales:</strong> desde Av. Fuerza Aérea hasta la colectora de la autopista, y desde Av. Fuerza Aérea hasta calle Lennox.<br>' +
+      '<strong>Arterias incorporadas después (Ordenanza 978/14):</strong> Suipacha, Gral. Paz, José Ingenieros, Mar del Plata, Gral. Guido, Ruta 34 S, Lennox (entre Pasaje Scoccia y Las Clavelinas), Tucumán (entre Vélez Sarsfield y Ciudad de Funes), Rondeau, Bvd. Mitre, Colonos de Funes, Humaitá, Jauretche, Pedro A. Ríos, José Hernández (entre Houssay y Tomás de la Torre), Avda. Argentina, Maiztegui (en toda su traza).<br><br>' +
+      'La actividad igual tiene que cumplir las normas de construcción, bromatológicas, de ruido y tributarias que correspondan. Las confiterías bailables son un caso aparte: solo se permiten sobre la Ruta Nacional 9, en los tramos entre B. Mitre y Arroyo Ludueña, y entre San José y San Sebastián.'));
+  }
   if (grupo === 'ALR') {
     temas.push(topicItem('Loteo restringido (ALR): cerramientos y servicios',
       'Si el emprendimiento tiene cerramiento entre el dominio privado y el espacio verde público, ese cerramiento no se puede modificar. Los servicios (electricidad, telecomunicaciones, etc.) dentro del área y en sus veredas deben ser subterráneos (Art. 16 bis, Ordenanza 617/09).'));
