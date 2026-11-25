@@ -333,21 +333,6 @@ function centroManzanaValor(p) {
   return 'No';
 }
 
-const GLOSARIO_HTML = `<dl>
-  <dt>F.O.T. (Factor de Ocupación Total)</dt>
-  <dd>Definición textual de la ordenanza (Anexo II, Índices Edilicios): "relación entre la superficie total de edificación (incluidos entrepisos, pero excluyendo galerías, subsuelos, balcones e instalaciones de servicios en azoteas) y el área total del predio, sin descontar la superficie comprendida por retiro de línea de edificación y espacio destinado a centro de manzana."</dd>
-  <dd style="margin-top:4px;">Admite hasta 10% de tolerancia sobre el máximo (esa tolerancia no aplica a retiros, distancias ni alturas).</dd>
-  <dt>F.O.S. (Factor de Ocupación de Suelo)</dt>
-  <dd>Definición textual de la ordenanza: "relación que existe entre la superficie total que ocupa la edificación en Planta Baja, y el área total del predio", con el mismo criterio de retiros y centro de manzana que el F.O.T.</dd>
-  <dd style="margin-top:4px;">También admite hasta 10% de tolerancia sobre el máximo.</dd>
-  <dt>Altura máxima</dt><dd>Cantidad de pisos permitidos sobre el nivel de vereda. "PB + 1" significa planta baja más un piso (dos niveles en total); "PB" solo significa planta baja, sin piso superior.</dd>
-  <dt>Retiro</dt><dd>Distancia mínima entre la construcción y el límite del lote (línea municipal, medianeras o fondo), según lo que fije cada zona.</dd>
-  <dt>Servidumbre de jardín</dt><dd>Un retiro que además tiene que quedar parquizado (con pasto/jardín): no se puede cubrir con piso, solado ni techo de ningún tipo.</dd>
-  <dt>Entrepiso</dt><dd>Un nivel intermedio dentro de un mismo ambiente (no es un piso aparte): puede cubrir hasta el 75% de la superficie del piso de abajo, cuenta 100% para el F.O.T., y no puede cerrarse ni subdividirse como una unidad independiente.</dd>
-  <dt>Centro de manzana</dt><dd>En Área Central y Área Norte se construye pegado a la línea municipal, pero solo hasta cierta profundidad desde el frente — el resto del fondo del lote queda sin construir, compartido con los lotes vecinos de la manzana. En el resto de las zonas no aplica (los retiros ya cubren todo el perímetro del lote).</dd>
-  <dt>Superficie / ancho mínimo</dt><dd>Tamaño y frente mínimo que debe tener el lote en esta zona para construir o subdividir, según el Anexo I.</dd>
-</dl>`;
-
 function fichaHTML(p, tieneEje) {
   currentZoneProps = p;
   return `
@@ -369,7 +354,6 @@ function fichaHTML(p, tieneEje) {
       <div class="topics">
         <div class="topics-title">Más información de la Ordenanza 288/85</div>
         <div style="font-size:11px; color:#999; margin:-2px 0 6px; line-height:1.4;">Orientación para entender la normativa, no un reemplazo del texto legal vigente.</div>
-        ${topicItem('Glosario: FOT, FOS, altura, retiro', GLOSARIO_HTML)}
         ${usosHTML(p)}
         ${temasAdicionales(p).join('')}
       </div>
