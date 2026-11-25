@@ -232,8 +232,12 @@ function temasAdicionales(p) {
   }
 
   if (['AC', 'AN', 'AR3', 'AR4', 'ALR'].includes(grupo)) {
-    temas.push(topicItem('Si vas a fraccionar este lote',
-      'Depende de qué tipo de fraccionamiento sea (Ordenanza 288/85): si es una <em>simple subdivisión</em> (partir tu lote sin abrir calles, caso típico de un vecino) no hay cesión de espacio verde/reserva fiscal exigida en el texto, salvo que supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10). Si en cambio es un <em>loteo</em> (nueva urbanización con apertura de calles), ahí sí corresponde ceder 12% a espacio verde y 4% a reserva fiscal (Cap. II), o 16% si es por Unidades Parcelarias Integradas (Art. 9). Conviene confirmar con el Concejo cuál de estos casos aplica a tu proyecto.<br><br>Para subdivisiones, la tabla de índices admite una <strong>tolerancia de ±20%</strong>, pero solo en una de las variables (por ejemplo, en la superficie mínima o en el frente mínimo, no en ambas a la vez).'));
+    temas.push(topicItem('Loteo (nueva urbanización con apertura de calles)',
+      'Es el fraccionamiento de tierra que crea nuevos lotes urbanos abriendo calles o avenidas (Cap. II, Ordenanza 288/85). Corresponde ceder un 12% de la superficie a espacio verde y un 4% a reserva fiscal, o un 16% si el proyecto es por el Régimen de Unidades Parcelarias Integradas (Art. 9°). Conviene confirmar el proyecto con el Concejo antes de avanzar.'));
+    temas.push(topicItem('Subdivisión simple (partir el lote sin abrir calles)',
+      'Es el caso típico de un vecino que parte su lote sin abrir calles ni pasajes (Cap. IV, Ordenanza 288/85). No hay cesión de espacio verde ni reserva fiscal exigida en el texto, salvo que la superficie supere los 5.000 m² — ahí se suma un lote de uso público del 10% (Art. 10°).<br><br>La tabla de índices admite una <strong>tolerancia de ±20%</strong>, pero solo en una de las variables (por ejemplo, en la superficie mínima o en el frente mínimo, no en ambas a la vez).'));
+    temas.push(topicItem('Subdivisión por Propiedad Horizontal (PH)',
+      'Es un mecanismo distinto a los anteriores: no fracciona el terreno, sino que divide un edificio (existente o a construir) en unidades funcionales. Se rige por el Código Civil y Comercial de la Nación, no por la Ordenanza 288/85.<br><br>El edificio igual tiene que respetar los índices urbanísticos de la zona (F.O.T., F.O.S., altura, retiros) como cualquier otra construcción. Para el trámite específico conviene consultar con un escribano o profesional matriculado.'));
   }
   if (['AC', 'AN', 'AR3', 'AR4'].includes(grupo) || p.cod_zona === 'ALR_4') {
     temas.push(topicItem('Comercios y servicios permitidos aunque seas zona residencial',
